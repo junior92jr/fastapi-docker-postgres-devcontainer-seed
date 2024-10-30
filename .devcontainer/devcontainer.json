@@ -1,0 +1,37 @@
+{
+  "name": "Python 3 & PostgreSQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "sqltools.connections": [
+          {
+            "name": "Container database",
+            "driver": "PostgreSQL",
+            "previewLimit": 50,
+            "server": "db",
+            "port": 5432,
+            "database": "postgres",
+            "username": "postgres",
+            "password": "postgres"
+          }
+        ],
+        "python.formatting.provider": "black",
+        "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+        "python.testing.pytestPath": "/usr/local/py-utils/bin/pytest"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "ms-python.flake8"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+  "remoteUser": "vscode"
+}

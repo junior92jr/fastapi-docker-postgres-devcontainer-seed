@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI: Debug",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload" // Enable auto-reload for development
+      ],
+      "jinja": true,
+      "justMyCode": false, // Allows debugging of libraries as well
+      "env": { // Optional: Add environment variables if needed
+        "DATABASE_URI": "postgresql://postgres:postgres@db/postgres"
+      },
+      "console": "integratedTerminal", // Use the integrated terminal for output
+      "subProcess": true // Enables debugging of child processes
+    }
+  ]
+}
