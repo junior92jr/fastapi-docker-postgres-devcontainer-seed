@@ -1,9 +1,9 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-import os
 
-DATABASE_URL = os.getenv(
-    "DATABASE_URI", "")
+
+DATABASE_URL = os.getenv("DATABASE_URI")
 
 if not DATABASE_URL:
     raise ValueError("DATABASE_URI environment variable is not set")
