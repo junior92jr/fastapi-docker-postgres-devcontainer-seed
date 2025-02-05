@@ -19,6 +19,6 @@
   "python.analysis.typeCheckingMode": "basic", // Set type checking mode
   "python.analysis.diagnosticMode": "workspace", // Set diagnostics mode to workspace
   "python.autoComplete.extraPaths": [
-    "./src" // Add your source paths for better IntelliSense (optional)
+    "./workspace" // Add your source paths for better IntelliSense (optional)
   ]
 }

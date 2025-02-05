@@ -3,24 +3,25 @@ version: '3.8'
 services:
   app:
     build:
-      context: ..
+      context: ./
       dockerfile: dockerfiles/app.dockerfile
     volumes:
-      - ..:/workspace:cached
+      - ./:/workspace:cached
     environment:
       - ENVIRONMENT=dev
       - TESTING=0
       - DATABASE_URI=postgresql://postgres:postgres@db/postgres
       - DATABASE_URI_TEST=postgresql://postgres:postgres@db/postgres_test
 
-    command: sleep infinity
-    network_mode: service:db
+    command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    ports:
+      - 8000:8000
     depends_on:
       - db
 
   db:
     build:
-      context: ..
+      context: ./
       dockerfile: dockerfiles/db.dockerfile
     restart: unless-stopped
     volumes:

@@ -44,3 +44,5 @@ lotify==2.3.4          # Uncomment if needed
 
 # For testing
 coverage==7.6.4
+
+pydantic_settings
