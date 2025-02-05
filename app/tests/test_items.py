@@ -2,7 +2,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from app.main import create_application
-from app.database import create_db_and_tables
+from app.database import create_db_and_tables, drop_db_and_tables
 
 
 @pytest.fixture(scope="module")
@@ -11,6 +11,7 @@ def client():
     with TestClient(app) as client:
         create_db_and_tables()
         yield client
+        drop_db_and_tables()
 
 
 def test_create_item(client: TestClient):

@@ -1,4 +1,3 @@
-from curses import echo
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -17,6 +16,11 @@ Base = declarative_base()
 def create_db_and_tables() -> None:
     """Creates the tables in the database from the models."""
     Base.metadata.create_all(bind=engine)
+
+
+def drop_db_and_tables() -> None:
+    """Drops the tables in the database, clearing all data."""
+    Base.metadata.drop_all(bind=engine)
 
 
 def get_session():
