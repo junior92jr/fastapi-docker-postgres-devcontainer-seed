@@ -1,13 +1,13 @@
+from curses import echo
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from app.config import get_app_settings
+from app.config import settings
+from app.utils.common import is_testing
 
-print("------------")
-print(get_app_settings().DATABASE_URI)
-print("------------")
-
-engine = create_engine(get_app_settings().DATABASE_URI, echo=True)
+engine = create_engine(
+    settings.DATABASE_URI if not is_testing(
+    ) else settings.TEST_DATABASE_URI, echo=True)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

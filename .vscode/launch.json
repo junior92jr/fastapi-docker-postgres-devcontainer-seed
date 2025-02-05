@@ -17,8 +17,8 @@
       "jinja": true,
       "justMyCode": false, // Allows debugging of libraries as well
       "env": { // Optional: Add environment variables if needed
-        "DATABASE_URI": "postgresql://postgres:postgres@db/postgres",
-        "DATABASE_URI_TEST": "postgresql://postgres:postgres@db/postgres_test"
+        "DATABASE_URI": "postgresql://postgres:postgres@db/web",
+        "DATABASE_URI_TEST": "postgresql://postgres:postgres@db/web_test"
       },
       "console": "integratedTerminal", // Use the integrated terminal for output
       "subProcess": true // Enables debugging of child processes

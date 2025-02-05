@@ -8,10 +8,8 @@ services:
     volumes:
       - ..:/workspace:cached
     environment:
-      - ENVIRONMENT=dev
-      - TESTING=0
-      - DATABASE_URI=postgresql://postgres:postgres@db/postgres
-      - DATABASE_URI_TEST=postgresql://postgres:postgres@db/postgres_test
+      - DATABASE_URI=postgresql://postgres:postgres@db/web
+      - DATABASE_URI_TEST=postgresql://postgres:postgres@db/web_test
 
     command: sleep infinity
     network_mode: service:db
@@ -27,7 +25,6 @@ services:
       - postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
 
 volumes:

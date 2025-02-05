@@ -1,2 +1,2 @@
-CREATE DATABASE postgres;
-CREATE DATABASE postgres_test;
+CREATE DATABASE web;
+CREATE DATABASE web_test;
