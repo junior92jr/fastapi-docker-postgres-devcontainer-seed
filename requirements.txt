@@ -4,45 +4,15 @@ uvicorn==0.32.0
 httpx==0.27.2
 
 # Database packages
-databases[postgresql]
 asyncpg==0.30.0
 SQLAlchemy==2.0.36
 psycopg2==2.9.10
-
-# Template engine
-Jinja2==3.1.4
-MarkupSafe==3.0.2
-
-# Asynchronous I/O support
-aiofiles==24.1.0
-uvloop==0.21.0
-websockets==13.1
 
 # Testing and linting
 pytest==8.3.3
 pytest-cov==5.0.0
 pytest-flake8==1.2.2
-flake8==5.0.4
-black==23.1.0  # Add black if you want to format your code
-
-# General utilities
-requests==2.32.3
-python-dotenv==1.0.1
-toml==0.10.2
-
-# Additional dependencies
-attrs==24.2.0
-click==8.1.7
-certifi==2024.8.30
-chardet==5.2.0
-idna==3.10
-urllib3==2.2.3
-
-# Optional packages
-line-bot-sdk==3.13.0  # Uncomment if needed
-lotify==2.3.4          # Uncomment if needed
-
-# For testing
 coverage==7.6.4
-
-pydantic_settings
+pydantic_settings==2.7.1
+flake8==5.0.4
+black==23.1.0

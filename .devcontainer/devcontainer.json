@@ -20,15 +20,14 @@
           }
         ],
         "python.formatting.provider": "black",
-        "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-        "python.testing.pytestPath": "/usr/local/py-utils/bin/pytest"
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
       },
       "extensions": [
+        "ms-python.debugpy",
         "ms-python.python",
         "ms-python.vscode-pylance",
         "mtxr.sqltools",
-        "mtxr.sqltools-driver-pg",
-        "ms-python.flake8"
+        "mtxr.sqltools-driver-pg"
       ]
     }
   },
