@@ -16,20 +16,26 @@ services:
     ports:
       - 8002:8000
     depends_on:
-      - web-db
+      web-db:
+        condition: service_healthy
   web-db:
     build:
       context: ./
       dockerfile: dockerfiles/db.dockerfile
     container_name: fastapi-db
     expose:
-      - 5432
+      - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
 
 volumes:
   postgres-data:
