@@ -7,9 +7,6 @@ services:
       dockerfile: dockerfiles/app.dockerfile
     volumes:
       - ..:/workspace:cached
-    environment:
-      - DATABASE_URI=postgresql://postgres:postgres@db/web
-      - DATABASE_URI_TEST=postgresql://postgres:postgres@db/web_test
 
     command: sleep infinity
     network_mode: service:db
