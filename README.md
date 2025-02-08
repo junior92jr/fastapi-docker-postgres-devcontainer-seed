@@ -1,145 +1,174 @@
-# fastapi-docker-postgres-devcontainer-seed  
+# FastAPI Docker PostgreSQL DevContainer Seed
 
-**Description**:  
-A pre-configured FastAPI project seed designed to streamline development with Docker, PostgreSQL, and Visual Studio Code DevContainers. This template is perfect for developers looking to kickstart a scalable FastAPI app with a PostgreSQL database, all within a containerized, reproducible environment.  
+**Description**A pre-configured FastAPI project template designed to streamline development with Docker, PostgreSQL, and Visual Studio Code DevContainers. This template is perfect for developers who want to quickly get started with a scalable FastAPI application using a PostgreSQL database, all within a containerized, reproducible environment.
 
-## Features:  
-- **FastAPI** as the primary backend framework for building high-performance APIs.  
-- **PostgreSQL** database integration for robust data management.  
-- **Docker Compose** configuration for quick setup and isolated development.  
-- **DevContainers** support for seamless VS Code integration, allowing easy onboarding and consistent environments.  
-- **Supports non-VS Code users** via standard Docker Compose setup.  
+---
 
-## Getting Started  
+## 🚀 Features
 
-### For VS Code Users:  
-1. Clone the repository and open it in VS Code.  
-2. Open the DevContainer (`.devcontainer/devcontainer.json`) to automatically set up the development environment.  
-3. Run the application using Docker Compose to start the FastAPI app with a connected PostgreSQL database.  
+- **FastAPI**: High-performance framework for building APIs with Python 3.7+.
+- **PostgreSQL**: Robust, open-source relational database for data management.
+- **Docker Compose**: Simplified multi-container management for easy setup and isolated development environments.
+- **DevContainers**: Seamless integration with Visual Studio Code, offering a consistent and reproducible development environment.
+- **Standard Docker Setup**: Supports non-VS Code users with a straightforward Docker Compose configuration.
 
-### For Non-VS Code Users:
+---
 
-If you are not using Visual Studio Code but still want to use the seed project, follow these steps:
+## 💡 Getting Started
 
-1. Ensure you have **Docker** and **Docker Compose** installed on your system.
-2. Clone the repository:
+### Prerequisites
 
-#### HTTPS
+Before you begin, make sure you have the following installed:
 
-Use the following command to clone via HTTPS:
-```bash
-git clone https://github.com/junior92jr/fastapi-docker-postgres-devcontainer-seed.git
-cd fastapi-docker-postgres-devcontainer-seed
-```
+- **Docker** & **Docker Compose** (for containerization)
+- **Visual Studio Code** (optional, for DevContainer integration)
+- **Git** (to clone the repository)
 
-#### SSH
+---
 
-Alternatively, you can clone via SSH (make sure your SSH keys are set up):
-```bash
-git clone git@github.com:junior92jr/fastapi-docker-postgres-devcontainer-seed.git
-cd fastapi-docker-postgres-devcontainer-seed
-```
+### 🖥️ For Visual Studio Code Users
 
-3. Set up the `.env` file:
+1. **Clone the repository**:
 
-Copy the example `.env_sample` file to create your own `.env` file:
-```bash
-cp .env_example .env
-```
+   ```bash
+   git clone https://github.com/junior92jr/fastapi-docker-postgres-devcontainer-seed.git
+   cd fastapi-docker-postgres-devcontainer-seed
+   ```
 
-4. (Optional) Edit the `.env` file:
+2. **Open the project in VS Code**:   Open the project folder in Visual Studio Code.
 
-Open the `.env` file and update any environment variables as needed, such as database configurations or API keys.
+3. **Automatically configure your DevContainer**:   Once inside VS Code, it will automatically prompt you to reopen the folder inside the DevContainer (defined in `.devcontainer/devcontainer.json`).
 
+4. **Run the application**:   Use Docker Compose to start the FastAPI app along with the PostgreSQL database by running:
 
-5. Build and start the Docker containers:
+   ```bash
+   docker-compose up --build
+   ```
 
-There are two possible commands depending on your Docker version:
+   The application will be running and available at `http://localhost:<port>` (where `<port>` is defined in your `.env` file).
 
-##### For older versions of Docker (with `docker-compose`):
-```bash
-docker-compose up --build
-```
-This command tells Docker Compose to:
+---
 
-Build the images if they aren't already built.
-Start the containers based on the configurations in the `docker-compose.yml` file.
+### 🛠️ For Non-VS Code Users
 
-##### For newer versions of Docker (with `docker compose`):
-```bash
-docker compose up --build
-```
+1. **Clone the repository**:
 
-In the newer Docker versions, the command is slightly different (notice the space between `docker` and `compose`). It functions the same way as the previous command.
+   ```bash
+   git clone https://github.com/junior92jr/fastapi-docker-postgres-devcontainer-seed.git
+   cd fastapi-docker-postgres-devcontainer-seed
+   ```
 
+2. **Set up the `.env` file**:   Copy the example `.env_sample` file to create your own `.env` file.
 
-6. Access the application:
+   ```bash
+   cp .env_sample .env
+   ```
 
-Once the containers are running, you can access the FastAPI app by navigating to `http://localhost:<port>` (replace `<port>` with the port configured in your `.env` or `docker-compose.yml` file).
+3. **Edit the `.env` file (Optional)**:   Open and edit the `.env` file to update any environment variables (e.g., database configurations, API keys).
 
+4. **Build and start the Docker containers**:
 
-7. (Optional) Run in detached mode:
+   For **older Docker versions** (using `docker-compose`):
 
-If you want to run the containers in the background, use the `-d` flag:
+   ```bash
+   docker-compose up --build
+   ```
 
-```bash
-docker-compose up --build -d
-```
+   For **newer Docker versions** (using `docker compose`):
 
-or, for newer versions:
+   ```bash
+   docker compose up --build
+   ```
 
-```bash
-docker compose up --build -d
-```
-This will run the containers in detached mode, freeing up your terminal.
+   This will build the necessary images and start the containers, creating the FastAPI app connected to a PostgreSQL database.
 
-8. Stop the containers:
-When you're done, you can stop the containers with:
-```bash
-docker-compose down
-```
+5. **Access the application**:   Once the containers are running, open a browser and go to `http://localhost:<port>` (replace `<port>` with the port configured in `.env` or `docker-compose.yml`).
 
-or, for newer versions:
+6. **Run in detached mode (Optional)**:   To run the containers in the background, use the `-d` flag:
 
-```bash
-docker compose down
-```
+   For **older Docker versions**:
 
+   ```bash
+   docker-compose up --build -d
+   ```
 
-### Running Tests with pytest:
-Once your Docker containers are up and running, you can run tests using pytest within the container.
+   For **newer Docker versions**:
 
-Access the running container (e.g., the app container) using Docker's `exec` command:
-```bash
-docker exec -it <container_name> /bin/bash
-```
+   ```bash
+   docker compose up --build -d
+   ```
 
-Replace `<container_name>` with the name of your app container, which you can find by running:
+7. **Stop the containers**:   To stop the containers when you're done, use:
 
-```bash
-docker ps
-```
+   For **older Docker versions**:
 
-Once inside the container, navigate to the project directory (if not already there):
+   ```bash
+   docker-compose down
+   ```
 
-```bash
-cd /path/to/your/project
-```
+   For **newer Docker versions**:
 
-Run pytest to execute your tests:
+   ```bash
+   docker compose down
+   ```
 
-```bash
-pytest
-```
+---
 
-This will run all the tests located in the project. If you have specific test directories or files, you can also specify them, like so:
+## 🧪 Running Tests
 
-```bash
-pytest path/to/test_file.py
-```
+1. **Access the running container**:
 
-After running the tests, you can exit the container:
+   Use the following command to access the app container:
 
-```bash
-exit
-```
+   ```bash
+   docker exec -it <container_name> /bin/bash
+   ```
+
+   Replace `<container_name>` with the name of your app container, which you can find by running:
+
+   ```bash
+   docker ps
+   ```
+
+2. **Navigate to the project directory** (if not already there):
+
+   ```bash
+   cd /path/to/your/project
+   ```
+
+3. **Run the tests**:
+
+   Execute the tests using `pytest`:
+
+   ```bash
+   pytest
+   ```
+
+   You can also specify specific test files or directories:
+
+   ```bash
+   pytest path/to/test_file.py
+   ```
+
+4. **Exit the container**:
+
+   Once done, exit the container:
+
+   ```bash
+   exit
+   ```
+
+---
+
+## 📝 Additional Notes
+
+- If you're using **Docker Desktop**, you can easily manage containers through the GUI interface.
+- This template uses **Docker Compose** to manage multi-container environments for both development and production.
+- The `.env` file includes various environment variables for configuration—make sure to customize it according to your needs.
+- To customize the FastAPI application, simply modify the code in the `app` directory.
+
+---
+
+## 🎯 Contributing
+
+Feel free to fork this project and submit pull requests! Contributions are always welcome.
