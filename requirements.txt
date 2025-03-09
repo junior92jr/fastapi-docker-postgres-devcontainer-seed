@@ -8,11 +8,4 @@ asyncpg==0.30.0
 SQLAlchemy==2.0.36
 psycopg2==2.9.10
 
-# Testing and linting
-pytest==8.3.3
-pytest-cov==5.0.0
-pytest-flake8==1.2.2
-coverage==7.6.4
-pydantic_settings==2.7.1
-flake8==5.0.4
-black==23.1.0
+-r dev-requirements.txt

@@ -1,7 +1,8 @@
 import pytest
 from fastapi.testclient import TestClient
-from app.main import create_application
+
 from app.database import create_db_and_tables, drop_db_and_tables
+from app.main import create_application
 
 
 @pytest.fixture(scope="module")

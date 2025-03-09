@@ -2,10 +2,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from app.utils.logger import logger_config
 from app.database import create_db_and_tables
 from app.routers import items
-
+from app.utils.logger import logger_config
 
 logger = logger_config(__name__)
 

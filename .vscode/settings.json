@@ -1,24 +1,36 @@
 {
-  "python.formatting.provider": "black",
-  "editor.formatOnSave": true,
-  "editor.insertSpaces": true,
-  "editor.tabSize": 4,
-  "python.languageServer": "Pylance",
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true, // Enable Flake8 linting
-  "python.linting.flake8Args": [ // Custom arguments for Flake8 (optional)
-    "--max-line-length=88" // Adjust to your preferred line length
+  "terminal.integrated.defaultProfile.linux": "zsh", // Uses Zsh as the default terminal
+  "sqltools.connections": [ // Database connection for SQLTools extension
+    {
+      "name": "Container database",
+      "driver": "PostgreSQL",
+      "previewLimit": 50,
+      "server": "db",
+      "port": 5432,
+      "database": "web",
+      "username": "postgres",
+      "password": "postgres"
+    }
   ],
-  "python.testing.pytestArgs": [
-    "tests"
-  ],
-  "python.testing.unittestEnabled": false,
-  "python.testing.nosetestsEnabled": false,
-  "python.testing.pytestEnabled": true,
-  "python.analysis.autoImportCompletions": true, // Enable auto-import completions
-  "python.analysis.typeCheckingMode": "basic", // Set type checking mode
-  "python.analysis.diagnosticMode": "workspace", // Set diagnostics mode to workspace
+  "python.defaultInterpreterPath": "/usr/local/bin/python", // Python interpreter path
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter" // Uses Black for formatting
+  },
+  "editor.insertSpaces": true, // Converts tabs to spaces
+  "editor.tabSize": 4, // Sets indentation to 4 spaces
+  "python.languageServer": "Pylance", // Enables Pylance for IntelliSense
+  "python.testing.pytestEnabled": true, // Enables Pytest for testing
+  "editor.formatOnSave": true, // Auto-formats files on save
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always" // Automatically sorts imports
+  },
+  "editor.rulers": [
+    88
+  ], // Displays a vertical ruler at 88 characters
+  "python.analysis.autoImportCompletions": true, // Enables auto-import suggestions
+  "python.analysis.typeCheckingMode": "basic", // Enables basic type checking
+  "python.analysis.diagnosticMode": "workspace", // Analyzes the entire workspace
   "python.autoComplete.extraPaths": [
-    "./workspace" // Add your source paths for better IntelliSense (optional)
-  ]
+    "./workspace"
+  ] // Adds extra paths for autocompletion
 }

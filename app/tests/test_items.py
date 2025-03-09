@@ -5,8 +5,10 @@ def test_create_item(client: TestClient):
     """Tests creating an item with valid data."""
     response = client.post(
         "/items/",
-        json={"name": "Gaming Laptop",
-              "description": "A high-performance laptop for gaming."}
+        json={
+            "name": "Gaming Laptop",
+            "description": "A high-performance laptop for gaming.",
+        },
     )
     assert response.status_code == 200
     data = response.json()
@@ -34,8 +36,10 @@ def test_get_item(client: TestClient):
     """Tests retrieving a specific item by ID."""
     response = client.post(
         "/items/",
-        json={"name": "Mechanical Keyboard",
-              "description": "RGB backlit mechanical keyboard."}
+        json={
+            "name": "Mechanical Keyboard",
+            "description": "RGB backlit mechanical keyboard.",
+        },
     )
     assert response.status_code == 200
     item_id = response.json()["id"]
@@ -58,8 +62,10 @@ def test_create_multiple_items(client: TestClient):
     """Tests if multiple items are correctly created and retrieved."""
     items = [
         {"name": "Wireless Mouse", "description": "Ergonomic wireless mouse."},
-        {"name": "USB-C Hub",
-            "description": "Multi-port adapter with HDMI, USB, and Ethernet."}
+        {
+            "name": "USB-C Hub",
+            "description": "Multi-port adapter with HDMI, USB, and Ethernet.",
+        },
     ]
 
     for item in items:
