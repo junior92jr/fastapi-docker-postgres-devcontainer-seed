@@ -24,7 +24,8 @@ RUN apt-get update && \
 RUN pip install --upgrade pip==24.0 setuptools==69.0.3 wheel==0.43.0
 
 # Copy and install Python dependencies with proper ownership
-COPY --chown=vscode:vscode requirements.txt /workspace/requirements.txt
+# Copy both requirements files
+COPY --chown=vscode:vscode requirements.txt dev-requirements.txt /workspace/
 RUN pip install --no-cache-dir -r /workspace/requirements.txt
 
 # Set up the workspace
