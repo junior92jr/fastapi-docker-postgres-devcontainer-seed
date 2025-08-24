@@ -1,22 +1,21 @@
 {
-  "name": "Python 3 & PostgreSQL",
-  "dockerComposeFile": "docker-compose.yml", // Uses Docker Compose setup
-  "service": "app", // Main development service
-  "workspaceFolder": "/workspace", // Sets the working directory
+  "name": "Python 3 & FastAPI & PostgreSQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.debugpy", // Python debugger
-        "ms-python.python", // Python support
-        "ms-python.black-formatter", // Black auto-formatter
-        "ms-python.vscode-pylance", // Pylance IntelliSense
-        "ms-python.isort", // Organizes imports
-        "ms-python.pylint", // Pylint linter
-        "ms-python.flake8", // Flake8 linter
-        "mtxr.sqltools", // SQL database management
-        "mtxr.sqltools-driver-pg" // PostgreSQL driver for SQLTools
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.vscode-pylance",
+        "ms-python.flake8",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
       ]
     }
   },
-  "remoteUser": "vscode" // Default container user
+  "remoteUser": "vscode"
 }

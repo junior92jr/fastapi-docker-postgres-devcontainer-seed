@@ -1,36 +1,37 @@
 {
-  "terminal.integrated.defaultProfile.linux": "zsh", // Uses Zsh as the default terminal
-  "sqltools.connections": [ // Database connection for SQLTools extension
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "sqltools.connections": [
     {
       "name": "Container database",
       "driver": "PostgreSQL",
       "previewLimit": 50,
       "server": "db",
       "port": 5432,
-      "database": "web",
+      "database": "web_test",
       "username": "postgres",
       "password": "postgres"
     }
   ],
-  "python.defaultInterpreterPath": "/usr/local/bin/python", // Python interpreter path
+  "python.defaultInterpreterPath": "/usr/local/bin/python",
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter" // Uses Black for formatting
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "editor.insertSpaces": true, // Converts tabs to spaces
-  "editor.tabSize": 4, // Sets indentation to 4 spaces
-  "python.languageServer": "Pylance", // Enables Pylance for IntelliSense
-  "python.testing.pytestEnabled": true, // Enables Pytest for testing
-  "editor.formatOnSave": true, // Auto-formats files on save
+  "python.languageServer": "Pylance",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "python.testing.pytestEnabled": true,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "always" // Automatically sorts imports
+    "source.organizeImports": "always",
+    "source.fixAll": "always"
   },
   "editor.rulers": [
     88
-  ], // Displays a vertical ruler at 88 characters
-  "python.analysis.autoImportCompletions": true, // Enables auto-import suggestions
-  "python.analysis.typeCheckingMode": "basic", // Enables basic type checking
-  "python.analysis.diagnosticMode": "workspace", // Analyzes the entire workspace
+  ],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.diagnosticMode": "workspace",
   "python.autoComplete.extraPaths": [
     "./workspace"
-  ] // Adds extra paths for autocompletion
+  ]
 }
